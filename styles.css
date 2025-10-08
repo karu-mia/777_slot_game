@@ -19,6 +19,7 @@ button {
   background: #1a2432; color: #e7f0ff; border-radius: 10px; cursor: pointer;
 }
 button:hover { background: #1f2b3b; }
+button:disabled { opacity: .5; cursor: not-allowed; }
 
 .status { display: flex; gap: 16px; margin: 8px 0 12px; opacity: .95; }
 
@@ -30,6 +31,28 @@ button:hover { background: #1f2b3b; }
   background: #0e151e; border: 1px solid #2e3a4d; border-radius: 12px;
   padding: 18px; text-align: center; font-size: 36px; font-weight: 700;
   min-height: 72px; display: grid; place-items: center;
+  transition: transform .08s ease; /* 軽く弾む感じ */
+}
+
+/* 回転中の視覚効果（数字が高速に切り替わるが、少し揺らす） */
+.reel.spinning {
+  animation: wobble .5s ease-in-out infinite;
+}
+@keyframes wobble {
+  0%, 100% { transform: translateY(0) }
+  25%      { transform: translateY(-2px) }
+  75%      { transform: translateY( 2px) }
+}
+
+/* 当たり時の発光 */
+.reel.win {
+  box-shadow: 0 0 0 rgba(255,220,80,0);
+  animation: flash .6s ease;
+}
+@keyframes flash {
+  0%   { box-shadow: 0 0 0 rgba(255,220,80,0); border-color: #2e3a4d; }
+  40%  { box-shadow: 0 0 18px rgba(255,220,80,.85); border-color: #ffd24a; }
+  100% { box-shadow: 0 0 0 rgba(255,220,80,0); border-color: #2e3a4d; }
 }
 
 .log {
