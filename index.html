@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slot Game (JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Slot Game (JS)</h1>
+
+    <section class="panel">
+      <div class="row">
+        <label for="bet">Bet</label>
+        <input id="bet" type="number" min="1" value="100" />
+        <button id="play">Play</button>
+        <button id="auto">Auto OFF</button>
+        <button id="reset">Reset</button>
+      </div>
+
+      <div class="status">
+        <div>Money: <span id="money">5,000</span> G</div>
+        <div>Goal: 10,000,000 G</div>
+      </div>
+
+      <div class="reels" id="reels">
+        <div class="reel" id="reelL">-</div>
+        <div class="reel" id="reelC">-</div>
+        <div class="reel" id="reelR">-</div>
+      </div>
+
+      <pre id="log" class="log"></pre>
+    </section>
+
+    <footer>
+      <small>Rules: 7-7-7 → x10000 / ゾロ目(777以外) → x50 / どれか2つ一致 → x5</small>
+    </footer>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>
